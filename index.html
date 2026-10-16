@@ -274,28 +274,6 @@
     .card-lift { transition: transform .35s var(--ease-reveal), box-shadow .35s var(--ease-reveal), border-color .3s ease; }
     .card-lift:hover { transform: translateY(-6px); box-shadow: var(--shadow-soft); border-color: var(--pushti); }
 
-    /* ---------- Program ---------- */
-    .program { background: var(--oq); }
-    .timeline { position: relative; max-width: 860px; margin: 0 auto; }
-    .timeline::before { content: ""; position: absolute; left: 118px; top: 12px; bottom: 12px; width: 2px; background: linear-gradient(var(--pushti), var(--shaftoli)); }
-    .t-item { display: grid; grid-template-columns: 100px 1fr; gap: 54px; padding: 0 0 40px; position: relative; }
-    .t-item:last-child { padding-bottom: 0; }
-    .t-time { font-weight: 600; color: var(--anor); text-align: right; padding-top: 4px; font-size: 17px; }
-    .t-item::before {
-      content: ""; position: absolute; left: 111px; top: 8px;
-      width: 16px; height: 16px; border-radius: 50%;
-      background: var(--krem); border: 3px solid var(--anor);
-    }
-    .t-body h3 { font-size: 23px; }
-    .t-body p { margin-top: 8px; color: var(--kul); }
-    .t-body ul { margin: 10px 0 0; padding-left: 20px; color: var(--kul); }
-    @media (max-width: 600px) {
-      .timeline::before { left: 7px; }
-      .t-item { grid-template-columns: 1fr; gap: 6px; padding-left: 36px; }
-      .t-item::before { left: 0; }
-      .t-time { text-align: left; }
-    }
-
     /* ---------- Audience ---------- */
     .audience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .aud {
@@ -477,7 +455,7 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
 <!--
   TILLAR / ЯЗЫКИ
   Har bir matn ikki marta yozilgan: data-lang="uz" va data-lang="ru".
@@ -486,14 +464,13 @@
 -->
 
   <!-- ============ HEADER ============ -->
-  <header class="header" id="top">
+  <header class="header">
     <div class="container">
       <a href="#top" class="logo">
-        <img src="logo.png" alt="Namuna Xalqaro Montessori Maktabi" class="logo-img">
+        <img src="images/logo.png" alt="Namuna Xalqaro Montessori Maktabi" class="logo-img">
       </a>
       <nav class="nav">
         <a href="#haqida"><span data-lang="uz">Vebinar haqida</span><span data-lang="ru">О вебинаре</span></a>
-        <a href="#dastur"><span data-lang="uz">Dastur</span><span data-lang="ru">Программа</span></a>
         <a href="#kimlar"><span data-lang="uz">Kimlar uchun</span><span data-lang="ru">Для кого</span></a>
         <a href="#spiker"><span data-lang="uz">Spiker</span><span data-lang="ru">Спикер</span></a>
         <a href="#savollar"><span data-lang="uz">Savollar</span><span data-lang="ru">Вопросы</span></a>
@@ -533,9 +510,8 @@
           </div>
 
           <div class="hero-actions reveal delay-3">
-            <!-- TO‘LDIRING: Instagram profilingiz havolasi -->
-            <a href="https://ig.me/m/USERNAME" target="_blank" rel="noopener" class="btn btn-primary btn-pulse"><span data-lang="uz">Direct orqali yozilish</span><span data-lang="ru">Записаться в Direct</span> <span class="arrow">→</span></a>
-            <a href="#dastur" class="btn btn-ghost"><span data-lang="uz">Dastur bilan tanishish</span><span data-lang="ru">Смотреть программу</span> <span class="arrow">→</span></a>
+            <a href="https://t.me/Namuna_Montessori_admin" target="_blank" rel="noopener" class="btn btn-primary btn-pulse"><span data-lang="uz">Roʻyxatdan oʻtish</span><span data-lang="ru">Зарегистрироваться</span> <span class="arrow">→</span></a>
+            <a href="https://t.me/Namuna_Montessori_admin" target="_blank" rel="noopener" class="btn btn-ghost"><span data-lang="uz">Menejer bilan bogʻlanish</span><span data-lang="ru">Связаться с менеджером</span> <span class="arrow">→</span></a>
           </div>
 
           <div class="hero-meta reveal delay-3">
@@ -549,7 +525,7 @@
             </span>
             <span class="chip">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.8c2 .7 3.2 2.5 3.6 5.2"/></svg>
-              <span data-lang="uz">€20 — ishtirok</span><span data-lang="ru">€20 — участие</span>
+              <span data-lang="uz">€20 | 280 000 soʻm</span><span data-lang="ru">€20 | 280 000 сум</span>
             </span>
           </div>
         </div>
@@ -611,13 +587,14 @@
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="15" height="14" rx="3"/><path d="M17 10l5-3v10l-5-3"/></svg></div>
           <div class="label"><span data-lang="uz">Format</span><span data-lang="ru">Формат</span></div>
           <div class="value"><span data-lang="uz">Onlayn</span><span data-lang="ru">Онлайн</span></div>
-          <div class="note"><span class="todo">Zoom / Google Meet</span></div>
+          <div class="note">Zoom</div>
         </div>
         <div class="fact card-lift reveal delay-3">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 6.5A6.5 6.5 0 1 0 17 17.5"/><path d="M4 10h9M4 14h9"/></svg></div>
           <div class="label"><span data-lang="uz">Ishtirok</span><span data-lang="ru">Участие</span></div>
           <div class="value">€20</div>
-          <div class="note"><span data-lang="uz">Toʻlov Direct orqali</span><span data-lang="ru">Оплата через Direct</span></div>
+          <div class="note"><span data-lang="uz">280 000 soʻm</span><span data-lang="ru">280 000 сум</span></div>
+          <div class="note"><span data-lang="uz">Karta orqali toʻlov</span><span data-lang="ru">Оплата картой</span></div>
         </div>
       </div>
     </section>
@@ -695,43 +672,6 @@
       </div>
     </section>
 
-    <!-- ============ PROGRAM ============ -->
-    <section class="program" id="dastur">
-      <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow"><span data-lang="uz">Dastur</span><span data-lang="ru">Программа</span></span>
-          <h2><span data-lang="uz">2 soat — nazariya emas, amaliyot</span><span data-lang="ru">2 часа — не теория, а практика</span></h2>
-          <p>
-            <span data-lang="uz">Vebinar quyidagi bloklardan iborat. <span class="todo">Vaqt va mavzularni oʻzingizning rejangizga moslang</span></span>
-            <span data-lang="ru">Вебинар состоит из следующих блоков. <span class="todo">Подправьте время и темы под свой план</span></span>
-          </p>
-        </div>
-
-        <div class="timeline">
-          <div class="t-item reveal">
-            <div class="t-time">15:20</div>
-            <div class="t-body">
-              <h3><span data-lang="uz">Prezentatsiyalar va real misollar</span><span data-lang="ru">Презентации и реальные примеры</span></h3>
-              <p>
-                <span data-lang="uz">0–3 va 3–6 yosh guruhlari uchun faoliyatlar: anor tozalash, meva kesish, non surtish va boshqalar. <span class="todo">Misollarni aniqlashtiring</span></span>
-                <span data-lang="ru">Работы для групп 0–3 и 3–6 лет: чистка граната, нарезка фруктов, намазывание хлеба и другие. <span class="todo">Уточните примеры</span></span>
-              </p>
-            </div>
-          </div>
-          <div class="t-item reveal">
-            <div class="t-time">15:45</div>
-            <div class="t-body">
-              <h3><span data-lang="uz">Savol-javob</span><span data-lang="ru">Вопросы и ответы</span></h3>
-              <p>
-                <span data-lang="uz">Ishtirokchilarning savollariga jonli javoblar.</span>
-                <span data-lang="ru">Живые ответы на вопросы участников.</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ AUDIENCE ============ -->
     <section id="kimlar">
       <div class="container">
@@ -796,8 +736,8 @@
               <span data-lang="uz">Prezentatsiya berish ketma-ketligi namunalari</span>
               <span data-lang="ru">Примеры последовательности презентаций</span></li>
             <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>
-              <span data-lang="uz" class="todo">Bonus: vebinar yozuvi / PDF qoʻllanma (aniqlashtiring)</span>
-              <span data-lang="ru" class="todo">Бонус: запись вебинара / PDF-пособие (уточните)</span></li>
+              <span data-lang="uz">Vebinar yozuvi ikki tilda: oʻzbek va rus tillarida</span>
+              <span data-lang="ru">Запись вебинара на двух языках: русском и узбекском</span></li>
           </ul>
         </div>
         <blockquote class="outcomes-quote reveal delay-2">
@@ -816,7 +756,7 @@
           <div class="price-card">
             <span class="price-tag"><span data-lang="uz">Onlayn-vebinar</span><span data-lang="ru">Онлайн-вебинар</span></span>
             <h3><span data-lang="uz">Ishlaydigan pazandachilik</span><span data-lang="ru">Кулинария, которая работает</span></h3>
-            <div class="price"><strong>€20</strong><span><span data-lang="uz">/ ishtirok</span><span data-lang="ru">/ участие</span></span></div>
+            <div class="price"><strong>€20</strong><span><span data-lang="uz">| 280 000 soʻm</span><span data-lang="ru">| 280 000 сум</span></span></div>
             <div class="price-meta">
               <span data-lang="uz">25-oktabr 2026 · 14:00–16:00 (Riga vaqti)</span>
               <span data-lang="ru">25 октября 2026 · 14:00–16:00 (по Риге)</span>
@@ -826,10 +766,9 @@
               <li><span data-lang="uz">Real sinflardan misollar va prezentatsiyalar</span><span data-lang="ru">Примеры и презентации из реальных классов</span></li>
               <li><span data-lang="uz">Materiallar roʻyxati</span><span data-lang="ru">Список материалов</span></li>
               <li><span data-lang="uz">Jonli savol-javob</span><span data-lang="ru">Живые ответы на вопросы</span></li>
-              <li><span data-lang="uz" class="todo">Yozuvga kirish muddati</span><span data-lang="ru" class="todo">Срок доступа к записи</span></li>
+              <li><span data-lang="uz">Yozuvga kirish muddati — 3 oy</span><span data-lang="ru">Срок доступа к записи — 3 месяца</span></li>
             </ul>
-            <!-- TO‘LDIRING: Instagram profilingiz havolasi -->
-            <a href="https://ig.me/m/USERNAME" target="_blank" rel="noopener" class="btn btn-primary"><span data-lang="uz">Direct orqali roʻyxatdan oʻtish</span><span data-lang="ru">Записаться через Direct</span> <span class="arrow">→</span></a>
+            <a href="https://t.me/Namuna_Montessori_admin" target="_blank" rel="noopener" class="btn btn-primary"><span data-lang="uz">Roʻyxatdan oʻtish</span><span data-lang="ru">Зарегистрироваться</span> <span class="arrow">→</span></a>
           </div>
         </div>
 
@@ -839,7 +778,7 @@
           <ol class="steps">
             <li>
               <div>
-                <h3><span data-lang="uz">Instagram Direct’ga yozing</span><span data-lang="ru">Напишите в Instagram Direct</span></h3>
+                <h3><span data-lang="uz">Telegram’da menejerga yozing</span><span data-lang="ru">Напишите менеджеру в Telegram</span></h3>
                 <p>
                   <span data-lang="uz">“Vebinar” deb yozing — sizga barcha maʼlumotlarni yuboramiz.</span>
                   <span data-lang="ru">Напишите «Вебинар» — мы пришлём всю информацию.</span>
@@ -850,8 +789,8 @@
               <div>
                 <h3><span data-lang="uz">Toʻlovni amalga oshiring</span><span data-lang="ru">Оплатите участие</span></h3>
                 <p>
-                  <span data-lang="uz" class="todo">Toʻlov usullari: karta / PayPal / Revolut / Click / Payme ...</span>
-                  <span data-lang="ru" class="todo">Способы оплаты: карта / PayPal / Revolut / Click / Payme ...</span>
+                  <span data-lang="uz">Toʻlov bank kartasi orqali amalga oshiriladi.</span>
+                  <span data-lang="ru">Оплата банковской картой.</span>
                 </p>
               </div>
             </li>
@@ -873,7 +812,7 @@
     <section class="speaker" id="spiker">
       <div class="container">
         <div class="portrait reveal">
-          <img src="ulyana.jpg" alt="Ulyana Mayorova">
+          <img src="images/ulyana.jpg" alt="Ulyana Mayorova">
           <div class="portrait-badge">
             <span class="script">
               <span data-lang="uz">AMI sertifikati, 0–3 yosh</span>
@@ -916,8 +855,8 @@
           <details class="reveal">
             <summary><span data-lang="uz">Vebinar qaysi platformada oʻtadi?</span><span data-lang="ru">На какой платформе пройдёт вебинар?</span></summary>
             <div class="answer">
-              <span data-lang="uz"><span class="todo">Zoom / Google Meet</span>. Ulanish havolasi vebinar kuni Instagram Direct orqali yuboriladi.</span>
-              <span data-lang="ru"><span class="todo">Zoom / Google Meet</span>. Ссылку для подключения пришлём в Instagram Direct в день вебинара.</span>
+              <span data-lang="uz">Zoom. Ulanish havolasi vebinar kuni Telegram orqali yuboriladi.</span>
+              <span data-lang="ru">Zoom. Ссылку для подключения пришлём в Telegram в день вебинара.</span>
             </div>
           </details>
           <details class="reveal">
@@ -930,8 +869,8 @@
           <details class="reveal">
             <summary><span data-lang="uz">Vebinar yozuvi boʻladimi?</span><span data-lang="ru">Будет ли запись вебинара?</span></summary>
             <div class="answer">
-              <span data-lang="uz" class="todo">Ha / yoʻq. Yozuv qancha muddatga ochiq boʻlishini yozing.</span>
-              <span data-lang="ru" class="todo">Да / нет. Укажите, на какой срок будет доступна запись.</span>
+              <span data-lang="uz">Ha. Yozuv oʻzbek va rus tillarida boʻladi va 3 oy davomida ochiq turadi.</span>
+              <span data-lang="ru">Да. Запись будет на русском и узбекском языках и доступна 3 месяца.</span>
             </div>
           </details>
           <details class="reveal">
@@ -944,8 +883,8 @@
           <details class="reveal">
             <summary><span data-lang="uz">Toʻlovni qanday amalga oshiraman?</span><span data-lang="ru">Как оплатить участие?</span></summary>
             <div class="answer">
-              <span data-lang="uz">Instagram Direct’ga yozing. <span class="todo">Qabul qilinadigan toʻlov usullarini yozing.</span></span>
-              <span data-lang="ru">Напишите в Instagram Direct. <span class="todo">Укажите доступные способы оплаты.</span></span>
+              <span data-lang="uz">Telegram’da menejerga yozing (@Namuna_Montessori_admin). Toʻlov bank kartasi orqali amalga oshiriladi.</span>
+              <span data-lang="ru">Напишите менеджеру в Telegram (@Namuna_Montessori_admin). Оплата банковской картой.</span>
             </div>
           </details>
           <details class="reveal">
@@ -969,13 +908,13 @@
           </h2>
           <div class="script"><span data-lang="uz">joylar soni cheklangan</span><span data-lang="ru">количество мест ограничено</span></div>
           <p class="meta">
-            <span data-lang="uz">25-oktabr 2026 · 14:00–16:00 (Riga) · €20</span>
-            <span data-lang="ru">25 октября 2026 · 14:00–16:00 (Рига) · €20</span>
+            <span data-lang="uz">25-oktabr 2026 · 14:00–16:00 (Riga) · €20 | 280 000 soʻm</span>
+            <span data-lang="ru">25 октября 2026 · 14:00–16:00 (Рига) · €20 | 280 000 сум</span>
           </p>
           <div class="final-actions">
             <!-- TO‘LDIRING: havolalar -->
-            <a href="https://ig.me/m/USERNAME" target="_blank" rel="noopener" class="btn btn-primary"><span data-lang="uz">Direct orqali yozilish</span><span data-lang="ru">Записаться в Direct</span> <span class="arrow">→</span></a>
-            <a href="https://t.me/USERNAME" target="_blank" rel="noopener" class="btn btn-ghost"><span data-lang="uz">Telegram’da savol berish</span><span data-lang="ru">Задать вопрос в Telegram</span> <span class="arrow">→</span></a>
+            <a href="https://t.me/Namuna_Montessori_admin" target="_blank" rel="noopener" class="btn btn-primary"><span data-lang="uz">Roʻyxatdan oʻtish</span><span data-lang="ru">Зарегистрироваться</span> <span class="arrow">→</span></a>
+            <a href="https://t.me/Namuna_Montessori_admin" target="_blank" rel="noopener" class="btn btn-ghost"><span data-lang="uz">Telegram’da savol berish</span><span data-lang="ru">Задать вопрос в Telegram</span> <span class="arrow">→</span></a>
           </div>
         </div>
       </div>
@@ -988,17 +927,16 @@
     <div class="container">
       <div class="top">
         <div>
-          <a href="#top" class="logo"><img src="logo.png" alt="Namuna Xalqaro Montessori Maktabi" class="logo-img logo-img-lg"></a>
+          <a href="#top" class="logo"><img src="images/logo.png" alt="Namuna Xalqaro Montessori Maktabi" class="logo-img logo-img-lg"></a>
           <p class="about-text">
-            <span data-lang="uz" class="todo">Brend haqida bir jumla. Masalan: Montessori pedagoglari va ota-onalar uchun amaliy taʼlim.</span>
-            <span data-lang="ru" class="todo">Одно предложение о бренде. Например: практическое обучение для Монтессори-педагогов и родителей.</span>
+            <span data-lang="uz">Oʻzbekistondagi birinchi haqiqiy Montessori maktabi. AMI standartlari asosida, oʻzbek madaniyati va oila qadriyatlari bilan uygʻunlikda.</span>
+            <span data-lang="ru">Первая настоящая школа Монтессори в Узбекистане. По стандартам AMI, в гармонии с узбекской культурой и семейными ценностями.</span>
           </p>
           <div class="socials">
-            <!-- TO‘LDIRING: havolalar -->
-            <a href="https://instagram.com/USERNAME" target="_blank" rel="noopener" aria-label="Instagram">
+            <a href="https://instagram.com/namuna_montessori" target="_blank" rel="noopener" aria-label="Instagram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
             </a>
-            <a href="https://t.me/USERNAME" target="_blank" rel="noopener" aria-label="Telegram">
+            <a href="https://t.me/namuna_montessori" target="_blank" rel="noopener" aria-label="Telegram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l12-9"/></svg>
             </a>
           </div>
@@ -1007,7 +945,6 @@
           <h4><span data-lang="uz">Sahifa</span><span data-lang="ru">Страница</span></h4>
           <ul>
             <li><a href="#haqida"><span data-lang="uz">Vebinar haqida</span><span data-lang="ru">О вебинаре</span></a></li>
-            <li><a href="#dastur"><span data-lang="uz">Dastur</span><span data-lang="ru">Программа</span></a></li>
             <li><a href="#narx"><span data-lang="uz">Roʻyxatdan oʻtish</span><span data-lang="ru">Регистрация</span></a></li>
             <li><a href="#savollar"><span data-lang="uz">Savollar</span><span data-lang="ru">Вопросы</span></a></li>
           </ul>
@@ -1015,9 +952,9 @@
         <div>
           <h4><span data-lang="uz">Aloqa</span><span data-lang="ru">Контакты</span></h4>
           <ul>
-            <li><a href="https://ig.me/m/USERNAME" class="todo">@instagram</a></li>
-            <li><a href="https://t.me/USERNAME" class="todo">@telegram</a></li>
-            <li><a href="mailto:EMAIL" class="todo">email@example.com</a></li>
+            <li><a href="https://ig.me/m/namuna_montessori" target="_blank" rel="noopener">@namuna_montessori</a></li>
+            <li><a href="https://t.me/namuna_montessori" target="_blank" rel="noopener">@namuna_montessori</a></li>
+            <li><a href="mailto:namuna.ims@gmail.com">namuna.ims@gmail.com</a></li>
           </ul>
         </div>
       </div>
@@ -1030,7 +967,7 @@
 
   <!-- Floating CTA (mobile) -->
   <div class="float-cta" id="floatCta">
-    <a href="#narx" class="btn btn-primary"><span data-lang="uz">Roʻyxatdan oʻtish · €20</span><span data-lang="ru">Записаться · €20</span> <span class="arrow">→</span></a>
+    <a href="#narx" class="btn btn-primary"><span data-lang="uz">Roʻyxatdan oʻtish · €20</span><span data-lang="ru">Зарегистрироваться · €20</span> <span class="arrow">→</span></a>
   </div>
 
   <script>
